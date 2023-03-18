@@ -18,7 +18,6 @@ DeliveryTest {
     static void setUpAll() {
         faker = new Faker(new Locale("ru"));
     }
-
     @Test
 
     void shouldSuccessfulPlanAndReplanMeeting() {
