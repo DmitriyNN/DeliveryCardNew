@@ -18,12 +18,12 @@ DeliveryTest {
     static void setUpAll() {
         faker = new Faker(new Locale("ru"));
     }
+
     @Test
 
     void shouldSuccessfulPlanAndReplanMeeting() {
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
-
         $("input[type=text]").setValue(faker.address().cityName());
         $("[data-test-id=name] input").setValue(faker.name().fullName());
         $("[data-test-id=phone] input").setValue(faker.phoneNumber().phoneNumber());
