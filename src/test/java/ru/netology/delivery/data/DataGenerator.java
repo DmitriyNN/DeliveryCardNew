@@ -13,17 +13,19 @@ import java.util.Locale;
 public class DataGenerator {
     private DataGenerator() {
     }
-    public static String generateDate (long addDays, String pattern) {
-            return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
+
+    public static String generateDate(int shift) {
+        return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
     public static String generateCity(String locale) {
         var faker = new Faker(new Locale(locale));
         return faker.address().cityName();
     }
+
     public static String generateName(String locale) {
         var faker = new Faker(new Locale(locale));
-        return faker.name().fullName();
+        return faker.name().lastName() + " " + faker.name().firstName();
     }
     public static String generatePhone(String locale) {
         var faker = new Faker(new Locale(locale));
